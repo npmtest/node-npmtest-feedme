@@ -1,1 +1,40 @@
-{     "devDependencies": {         "feedme": "*",         "electron-lite": "kaizhu256/node-electron-lite#alpha",         "utility2": "kaizhu256/node-utility2#alpha"     },     "name":"npmtest-feedme",     "homepage": "https://github.com/npmtest/node-npmtest-feedme",     "repository": {         "type": "git",         "url": "https://github.com/npmtest/node-npmtest-feedme.git"     },     "scripts": {         "build-ci": "utility2 shReadmeTest build_ci.sh"     },     "version": "0.0.1" }
+{
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "description": "#### test coverage for  [feedme (v1.0.0)](https://github.com/fent/feedme.js#readme)  [![npm package](https://img.shields.io/npm/v/npmtest-feedme.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-feedme) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-feedme.svg)](https://travis-ci.org/npmtest/node-npmtest-feedme)",
+    "devDependencies": {
+        "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "feedme": "*",
+        "utility2": "kaizhu256/node-utility2#alpha"
+    },
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmtest/node-npmtest-feedme",
+    "keywords": [
+        "coverage",
+        "test",
+        "feedme"
+    ],
+    "license": "MIT",
+    "main": "lib.npmtest_feedme.js",
+    "name": "npmtest-feedme",
+    "nameAlias": "npmtest_feedme",
+    "nameOriginal": "npmtest-feedme",
+    "os": [
+        "darwin",
+        "linux"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/npmtest/node-npmtest-feedme.git"
+    },
+    "scripts": {
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "npm install \"kaizhu256/node-utility2#alpha\" && utility2 shDeployHeroku",
+        "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh postinstall",
+        "start": "PORT=${PORT:-8080} utility2 start test.js",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
+    },
+    "version": "0.0.1"
+}
